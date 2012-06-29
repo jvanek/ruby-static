@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D8D6A125159DB3C10074C263 /* sdbm.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78E98159DA753006394F7 /* sdbm.h */; };
-		D8D6A126159DB3D80074C263 /* syck.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78EC0159DA753006394F7 /* syck.h */; };
-		D8D6A127159DB3DB0074C263 /* yamlbyte.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78EC3159DA753006394F7 /* yamlbyte.h */; };
+		D8D6A125159DB3C10074C263 /* sdbm.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78E98159DA753006394F7 /* sdbm.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8D6A126159DB3D80074C263 /* syck.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78EC0159DA753006394F7 /* syck.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8D6A127159DB3DB0074C263 /* yamlbyte.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78EC3159DA753006394F7 /* yamlbyte.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8D6A12B159DC1B80074C263 /* regex.c in Sources */ = {isa = PBXBuildFile; fileRef = D8D6A129159DC1B80074C263 /* regex.c */; };
+		D8D6A12C159DC1B80074C263 /* regex.h in Headers */ = {isa = PBXBuildFile; fileRef = D8D6A12A159DC1B80074C263 /* regex.h */; };
+		D8D6A12D159DC1C30074C263 /* regex.h in Headers */ = {isa = PBXBuildFile; fileRef = D8D6A12A159DC1B80074C263 /* regex.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8D6A12F159DC31E0074C263 /* lex.c in Sources */ = {isa = PBXBuildFile; fileRef = D8D6A12E159DC31E0074C263 /* lex.c */; };
+		D8D6A131159DC3E40074C263 /* lex.h in Headers */ = {isa = PBXBuildFile; fileRef = D8D6A130159DC3E40074C263 /* lex.h */; };
+		D8D6A134159DC4880074C263 /* parse.h in Headers */ = {isa = PBXBuildFile; fileRef = D8D6A133159DC4880074C263 /* parse.h */; };
 		D8E78A6F159D9BC7006394F7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E78A6E159D9BC7006394F7 /* Foundation.framework */; };
 		D8E78D0B159D9D41006394F7 /* array.c in Sources */ = {isa = PBXBuildFile; fileRef = D8E78A7C159D9D40006394F7 /* array.c */; };
 		D8E78D0C159D9D41006394F7 /* bignum.c in Sources */ = {isa = PBXBuildFile; fileRef = D8E78A7D159D9D40006394F7 /* bignum.c */; };
@@ -132,17 +138,22 @@
 		D8E793C3159DA754006394F7 /* syslog.c in Sources */ = {isa = PBXBuildFile; fileRef = D8E78EC8159DA753006394F7 /* syslog.c */; };
 		D8E793C4159DA754006394F7 /* thread.c in Sources */ = {isa = PBXBuildFile; fileRef = D8E78ECF159DA753006394F7 /* thread.c */; };
 		D8E793CB159DA754006394F7 /* zlib.c in Sources */ = {isa = PBXBuildFile; fileRef = D8E79348159DA754006394F7 /* zlib.c */; };
-		D8E793CC159DB14D006394F7 /* bigdecimal.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78D8B159DA753006394F7 /* bigdecimal.h */; };
-		D8E793CD159DB168006394F7 /* defs.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78DB2159DA753006394F7 /* defs.h */; };
-		D8E793CE159DB168006394F7 /* digest.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78DB5159DA753006394F7 /* digest.h */; };
-		D8E793CF159DB168006394F7 /* md5.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78DC0159DA753006394F7 /* md5.h */; };
-		D8E793D0159DB168006394F7 /* rmd160.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78DC9159DA753006394F7 /* rmd160.h */; };
-		D8E793D1159DB168006394F7 /* sha1.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78DD2159DA753006394F7 /* sha1.h */; };
-		D8E793D2159DB168006394F7 /* sha2.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78DDD159DA753006394F7 /* sha2.h */; };
-		D8E793D3159DB246006394F7 /* utf8tbl.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78E2F159DA753006394F7 /* utf8tbl.h */; };
+		D8E793CC159DB14D006394F7 /* bigdecimal.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78D8B159DA753006394F7 /* bigdecimal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8E793CD159DB168006394F7 /* defs.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78DB2159DA753006394F7 /* defs.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8E793CE159DB168006394F7 /* digest.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78DB5159DA753006394F7 /* digest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8E793CF159DB168006394F7 /* md5.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78DC0159DA753006394F7 /* md5.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8E793D0159DB168006394F7 /* rmd160.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78DC9159DA753006394F7 /* rmd160.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8E793D1159DB168006394F7 /* sha1.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78DD2159DA753006394F7 /* sha1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8E793D2159DB168006394F7 /* sha2.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78DDD159DA753006394F7 /* sha2.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8E793D3159DB246006394F7 /* utf8tbl.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78E2F159DA753006394F7 /* utf8tbl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D8D6A129159DC1B80074C263 /* regex.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = regex.c; sourceTree = "<group>"; };
+		D8D6A12A159DC1B80074C263 /* regex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = regex.h; sourceTree = "<group>"; };
+		D8D6A12E159DC31E0074C263 /* lex.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lex.c; sourceTree = "<group>"; };
+		D8D6A130159DC3E40074C263 /* lex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lex.h; sourceTree = "<group>"; };
+		D8D6A133159DC4880074C263 /* parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parse.h; sourceTree = "<group>"; };
 		D8E78A6B159D9BC7006394F7 /* libruby-static.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libruby-static.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8E78A6E159D9BC7006394F7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D8E78A72159D9BC7006394F7 /* ruby-static-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ruby-static-Prefix.pch"; sourceTree = "<group>"; };
@@ -359,6 +370,8 @@
 				D8E78A8F159D9D40006394F7 /* inits.c */,
 				D8E78A90159D9D40006394F7 /* intern.h */,
 				D8E78A91159D9D40006394F7 /* io.c */,
+				D8D6A12E159DC31E0074C263 /* lex.c */,
+				D8D6A130159DC3E40074C263 /* lex.h */,
 				D8E78CE7159D9D41006394F7 /* marshal.c */,
 				D8E78CE8159D9D41006394F7 /* math.c */,
 				D8E78CE9159D9D41006394F7 /* missing.h */,
@@ -367,12 +380,15 @@
 				D8E78CEC159D9D41006394F7 /* object.c */,
 				D8E78CED159D9D41006394F7 /* pack.c */,
 				D8E78CEE159D9D41006394F7 /* parse.c */,
+				D8D6A133159DC4880074C263 /* parse.h */,
 				D8E78CF0159D9D41006394F7 /* prec.c */,
 				D8E78CF1159D9D41006394F7 /* process.c */,
 				D8E78CF2159D9D41006394F7 /* random.c */,
 				D8E78CF3159D9D41006394F7 /* range.c */,
 				D8E78CF4159D9D41006394F7 /* re.c */,
 				D8E78CF5159D9D41006394F7 /* re.h */,
+				D8D6A129159DC1B80074C263 /* regex.c */,
+				D8D6A12A159DC1B80074C263 /* regex.h */,
 				D8E78CF6159D9D41006394F7 /* ruby.c */,
 				D8E78CF7159D9D41006394F7 /* ruby.h */,
 				D8E78CF8159D9D41006394F7 /* rubyio.h */,
@@ -760,6 +776,7 @@
 				D8E793B9159DA754006394F7 /* gram.h in Headers */,
 				D8E793BF159DA754006394F7 /* syck.h in Headers */,
 				D8E793C2159DA754006394F7 /* yamlbyte.h in Headers */,
+				D8D6A12C159DC1B80074C263 /* regex.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -792,6 +809,9 @@
 				D8D6A125159DB3C10074C263 /* sdbm.h in Headers */,
 				D8D6A126159DB3D80074C263 /* syck.h in Headers */,
 				D8D6A127159DB3DB0074C263 /* yamlbyte.h in Headers */,
+				D8D6A12D159DC1C30074C263 /* regex.h in Headers */,
+				D8D6A131159DC3E40074C263 /* lex.h in Headers */,
+				D8D6A134159DC4880074C263 /* parse.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -969,6 +989,8 @@
 				D8E793C3159DA754006394F7 /* syslog.c in Sources */,
 				D8E793C4159DA754006394F7 /* thread.c in Sources */,
 				D8E793CB159DA754006394F7 /* zlib.c in Sources */,
+				D8D6A12B159DC1B80074C263 /* regex.c in Sources */,
+				D8D6A12F159DC31E0074C263 /* lex.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

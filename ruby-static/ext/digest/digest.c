@@ -268,7 +268,7 @@ rb_digest_instance_inspect(VALUE self)
     size_t digest_len = 32;	/* about this size at least */
     char *cname;
 
-    cname = rb_obj_classname(self);
+    cname = (char *)rb_obj_classname(self);
 
     /* #<Digest::ClassName: xxxxx...xxxx> */
     str = rb_str_buf_new(2 + strlen(cname) + 2 + digest_len * 2 + 1);
