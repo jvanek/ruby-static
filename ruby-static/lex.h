@@ -21,5 +21,6 @@ typedef enum {
     EXPR_CLASS,			/* immediate after `class', no here document. */
 } lex_state;
 
+struct kwtable *rb_reserved_word (register const char *str, register unsigned int len);
 
 #endif

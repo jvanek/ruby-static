@@ -14,8 +14,8 @@
 		D8D6A12C159DC1B80074C263 /* regex.h in Headers */ = {isa = PBXBuildFile; fileRef = D8D6A12A159DC1B80074C263 /* regex.h */; };
 		D8D6A12D159DC1C30074C263 /* regex.h in Headers */ = {isa = PBXBuildFile; fileRef = D8D6A12A159DC1B80074C263 /* regex.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D8D6A12F159DC31E0074C263 /* lex.c in Sources */ = {isa = PBXBuildFile; fileRef = D8D6A12E159DC31E0074C263 /* lex.c */; };
-		D8D6A131159DC3E40074C263 /* lex.h in Headers */ = {isa = PBXBuildFile; fileRef = D8D6A130159DC3E40074C263 /* lex.h */; };
-		D8D6A134159DC4880074C263 /* parse.h in Headers */ = {isa = PBXBuildFile; fileRef = D8D6A133159DC4880074C263 /* parse.h */; };
+		D8D6A131159DC3E40074C263 /* lex.h in Headers */ = {isa = PBXBuildFile; fileRef = D8D6A130159DC3E40074C263 /* lex.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8D6A134159DC4880074C263 /* parse.h in Headers */ = {isa = PBXBuildFile; fileRef = D8D6A133159DC4880074C263 /* parse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D8E78A6F159D9BC7006394F7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E78A6E159D9BC7006394F7 /* Foundation.framework */; };
 		D8E78D0B159D9D41006394F7 /* array.c in Sources */ = {isa = PBXBuildFile; fileRef = D8E78A7C159D9D40006394F7 /* array.c */; };
 		D8E78D0C159D9D41006394F7 /* bignum.c in Sources */ = {isa = PBXBuildFile; fileRef = D8E78A7D159D9D40006394F7 /* bignum.c */; };
