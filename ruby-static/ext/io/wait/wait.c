@@ -18,6 +18,8 @@
 #if defined(FIONREAD_HEADER)
 #include FIONREAD_HEADER
 #endif
+#include <sys/filio.h>
+#include <sys/ioctl.h>
 
 #ifdef HAVE_RB_W32_IOCTLSOCKET
 #define ioctl ioctlsocket

@@ -495,7 +495,7 @@ register long hash;
 	while (dbit < db->maxbno && getdbit(db, dbit))
 		dbit = 2 * dbit + ((hash & ((long) 1 << hbit++)) ? 2 : 1);
 
-	debug(("dbit: %d...", dbit));
+	debug(("dbit: %d...", (int)dbit));
 
 	db->curbit = dbit;
 	db->hmask = masks[hbit];
@@ -520,7 +520,7 @@ register long hash;
 		}
 		db->pagbno = pagb;
 
-		debug(("pag read: %d\n", pagb));
+		debug(("pag read: %d\n", (int)pagb));
 	}
 	return 1;
 }
@@ -542,7 +542,7 @@ register long dbit;
 			return 0;
 		db->dirbno = dirb;
 
-		debug(("dir read: %d\n", dirb));
+		debug(("dir read: %d\n", (int)dirb));
 	}
 
 	return db->dirbuf[c % DBLKSIZ] & (1 << (dbit % BYTESIZ));
@@ -565,7 +565,7 @@ register long dbit;
 			return 0;
 		db->dirbno = dirb;
 
-		debug(("dir read: %d\n", dirb));
+		debug(("dir read: %d\n", (int)dirb));
 	}
 
 	db->dirbuf[c % DBLKSIZ] |= (1 << (dbit % BYTESIZ));
