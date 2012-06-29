@@ -60,6 +60,23 @@
 		D8E78D41159D9D41006394F7 /* version.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78D05159D9D41006394F7 /* version.h */; };
 		D8E78D47159D9E14006394F7 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78D46159D9E14006394F7 /* config.h */; };
 		D8E78D4A159DA095006394F7 /* dmyext.c in Sources */ = {isa = PBXBuildFile; fileRef = D8E78D49159DA095006394F7 /* dmyext.c */; };
+		D8E78D5B159DA2CE006394F7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E78D5A159DA2CE006394F7 /* Cocoa.framework */; };
+		D8E78D65159DA2CE006394F7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D8E78D63159DA2CE006394F7 /* InfoPlist.strings */; };
+		D8E78D69159DA2CE006394F7 /* iRuby.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E78D68159DA2CE006394F7 /* iRuby.m */; };
+		D8E78D6D159DA326006394F7 /* defines.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78A80159D9D40006394F7 /* defines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8E78D6E159DA326006394F7 /* dln.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78A83159D9D40006394F7 /* dln.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8E78D6F159DA326006394F7 /* env.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78A88159D9D40006394F7 /* env.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8E78D70159DA326006394F7 /* intern.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78A90159D9D40006394F7 /* intern.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8E78D71159DA326006394F7 /* node.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78CEA159D9D41006394F7 /* node.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8E78D72159DA326006394F7 /* re.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78CF5159D9D41006394F7 /* re.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8E78D73159DA326006394F7 /* ruby.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78CF7159D9D41006394F7 /* ruby.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8E78D74159DA326006394F7 /* rubyio.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78CF8159D9D41006394F7 /* rubyio.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8E78D75159DA326006394F7 /* rubysig.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78CF9159D9D41006394F7 /* rubysig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8E78D76159DA326006394F7 /* st.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78CFD159D9D41006394F7 /* st.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8E78D77159DA326006394F7 /* util.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78D02159D9D41006394F7 /* util.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8E78D78159DA326006394F7 /* version.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78D05159D9D41006394F7 /* version.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8E78D79159DA326006394F7 /* ruby_static.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78A73159D9BC7006394F7 /* ruby_static.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8E78D7A159DA326006394F7 /* iRuby.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78D67159DA2CE006394F7 /* iRuby.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +137,16 @@
 		D8E78D46159D9E14006394F7 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		D8E78D48159D9F5B006394F7 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		D8E78D49159DA095006394F7 /* dmyext.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dmyext.c; sourceTree = "<group>"; };
+		D8E78D59159DA2CE006394F7 /* iRuby.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = iRuby.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8E78D5A159DA2CE006394F7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		D8E78D5D159DA2CE006394F7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		D8E78D5E159DA2CE006394F7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D8E78D5F159DA2CE006394F7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D8E78D62159DA2CE006394F7 /* iRuby-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iRuby-Info.plist"; sourceTree = "<group>"; };
+		D8E78D64159DA2CE006394F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D8E78D66159DA2CE006394F7 /* iRuby-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iRuby-Prefix.pch"; sourceTree = "<group>"; };
+		D8E78D67159DA2CE006394F7 /* iRuby.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iRuby.h; sourceTree = "<group>"; };
+		D8E78D68159DA2CE006394F7 /* iRuby.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iRuby.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +158,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D8E78D55159DA2CE006394F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8E78D5B159DA2CE006394F7 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -138,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				D8E78A70159D9BC7006394F7 /* ruby-static */,
+				D8E78D60159DA2CE006394F7 /* iRuby */,
 				D8E78A6D159D9BC7006394F7 /* Frameworks */,
 				D8E78A6C159D9BC7006394F7 /* Products */,
 			);
@@ -147,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				D8E78A6B159D9BC7006394F7 /* libruby-static.a */,
+				D8E78D59159DA2CE006394F7 /* iRuby.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -155,6 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				D8E78A6E159D9BC7006394F7 /* Foundation.framework */,
+				D8E78D5A159DA2CE006394F7 /* Cocoa.framework */,
+				D8E78D5C159DA2CE006394F7 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -237,6 +276,36 @@
 			name = Sources;
 			sourceTree = "<group>";
 		};
+		D8E78D5C159DA2CE006394F7 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8E78D5D159DA2CE006394F7 /* AppKit.framework */,
+				D8E78D5E159DA2CE006394F7 /* CoreData.framework */,
+				D8E78D5F159DA2CE006394F7 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		D8E78D60159DA2CE006394F7 /* iRuby */ = {
+			isa = PBXGroup;
+			children = (
+				D8E78D67159DA2CE006394F7 /* iRuby.h */,
+				D8E78D68159DA2CE006394F7 /* iRuby.m */,
+				D8E78D61159DA2CE006394F7 /* Supporting Files */,
+			);
+			path = iRuby;
+			sourceTree = "<group>";
+		};
+		D8E78D61159DA2CE006394F7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D8E78D62159DA2CE006394F7 /* iRuby-Info.plist */,
+				D8E78D63159DA2CE006394F7 /* InfoPlist.strings */,
+				D8E78D66159DA2CE006394F7 /* iRuby-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -261,6 +330,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D8E78D56159DA2CE006394F7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8E78D6D159DA326006394F7 /* defines.h in Headers */,
+				D8E78D6E159DA326006394F7 /* dln.h in Headers */,
+				D8E78D6F159DA326006394F7 /* env.h in Headers */,
+				D8E78D70159DA326006394F7 /* intern.h in Headers */,
+				D8E78D71159DA326006394F7 /* node.h in Headers */,
+				D8E78D72159DA326006394F7 /* re.h in Headers */,
+				D8E78D73159DA326006394F7 /* ruby.h in Headers */,
+				D8E78D74159DA326006394F7 /* rubyio.h in Headers */,
+				D8E78D75159DA326006394F7 /* rubysig.h in Headers */,
+				D8E78D76159DA326006394F7 /* st.h in Headers */,
+				D8E78D77159DA326006394F7 /* util.h in Headers */,
+				D8E78D78159DA326006394F7 /* version.h in Headers */,
+				D8E78D79159DA326006394F7 /* ruby_static.h in Headers */,
+				D8E78D7A159DA326006394F7 /* iRuby.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -271,6 +361,7 @@
 				D8E78A67159D9BC7006394F7 /* Sources */,
 				D8E78A68159D9BC7006394F7 /* Frameworks */,
 				D8E78A69159D9BC7006394F7 /* Headers */,
+				D8E78D53159DA287006394F7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -280,6 +371,24 @@
 			productName = "ruby-static";
 			productReference = D8E78A6B159D9BC7006394F7 /* libruby-static.a */;
 			productType = "com.apple.product-type.library.static";
+		};
+		D8E78D58159DA2CE006394F7 /* iRuby */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8E78D6A159DA2CE006394F7 /* Build configuration list for PBXNativeTarget "iRuby" */;
+			buildPhases = (
+				D8E78D54159DA2CE006394F7 /* Sources */,
+				D8E78D55159DA2CE006394F7 /* Frameworks */,
+				D8E78D56159DA2CE006394F7 /* Headers */,
+				D8E78D57159DA2CE006394F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iRuby;
+			productName = iRuby;
+			productReference = D8E78D59159DA2CE006394F7 /* iRuby.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -303,9 +412,38 @@
 			projectRoot = "";
 			targets = (
 				D8E78A6A159D9BC7006394F7 /* ruby-static */,
+				D8E78D58159DA2CE006394F7 /* iRuby */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D8E78D57159DA2CE006394F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8E78D65159DA2CE006394F7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D8E78D53159DA287006394F7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Version 2.0 (updated for Xcode 4, with some fixes)\n# Changes:\n#    - Works with xcode 4, even when running xcode 3 projects (Workarounds for apple bugs)\n#    - Faster / better: only runs lipo once, instead of once per recursion\n#    - Added some debugging statemetns that can be switched on/off by changing the DEBUG_THIS_SCRIPT variable to \"true\"\n#    - Fixed some typos\n# \n# Purpose:\n#   Create a static library for iPhone from within XCode\n#   Because Apple staff DELIBERATELY broke Xcode to make this impossible from the GUI (Xcode 3.2.3 specifically states this in the Release notes!)\n#   ...no, I don't understand why they did this!\n#\n# Author: Adam Martin - http://twitter.com/redglassesapps\n# Based on: original script from Eonil (main changes: Eonil's script WILL NOT WORK in Xcode GUI - it WILL CRASH YOUR COMPUTER)\n#\n# More info: see this Stack Overflow question: http://stackoverflow.com/questions/3520977/build-fat-static-library-device-simulator-using-xcode-and-sdk-4\n\n#################[ Tests: helps workaround any future bugs in Xcode ]########\n#\nDEBUG_THIS_SCRIPT=\"false\"\n\nif [ $DEBUG_THIS_SCRIPT = \"true\" ]\nthen\necho \"########### TESTS #############\"\necho \"Use the following variables when debugging this script; note that they may change on recursions\"\necho \"BUILD_DIR = $BUILD_DIR\"\necho \"BUILD_ROOT = $BUILD_ROOT\"\necho \"CONFIGURATION_BUILD_DIR = $CONFIGURATION_BUILD_DIR\"\necho \"BUILT_PRODUCTS_DIR = $BUILT_PRODUCTS_DIR\"\necho \"CONFIGURATION_TEMP_DIR = $CONFIGURATION_TEMP_DIR\"\necho \"TARGET_BUILD_DIR = $TARGET_BUILD_DIR\"\nfi\n\n#####################[ part 1 ]##################\n# First, work out the BASESDK version number (NB: Apple ought to report this, but they hide it)\n#    (incidental: searching for substrings in sh is a nightmare! Sob)\n\nSDK_VERSION=$(echo ${SDK_NAME} | grep -o '.\\{3\\}$')\n\n# Next, work out if we're in SIM or DEVICE\n\nif [ ${PLATFORM_NAME} = \"iphonesimulator\" ]\nthen\nOTHER_SDK_TO_BUILD=iphoneos${SDK_VERSION}\nelse\nOTHER_SDK_TO_BUILD=iphonesimulator${SDK_VERSION}\nfi\n\necho \"XCode has selected SDK: ${PLATFORM_NAME} with version: ${SDK_VERSION} (although back-targetting: ${IPHONEOS_DEPLOYMENT_TARGET})\"\necho \"...therefore, OTHER_SDK_TO_BUILD = ${OTHER_SDK_TO_BUILD}\"\n#\n#####################[ end of part 1 ]##################\n\n#####################[ part 2 ]##################\n#\n# IF this is the original invocation, invoke WHATEVER other builds are required\n#\n# Xcode is already building ONE target...\n#\n# ...but this is a LIBRARY, so Apple is wrong to set it to build just one.\n# ...we need to build ALL targets\n# ...we MUST NOT re-build the target that is ALREADY being built: Xcode WILL CRASH YOUR COMPUTER if you try this (infinite recursion!)\n#\n#\n# So: build ONLY the missing platforms/configurations.\n\nif [ \"true\" == ${ALREADYINVOKED:-false} ]\nthen\necho \"RECURSION: I am NOT the root invocation, so I'm NOT going to recurse\"\nelse\n# CRITICAL:\n# Prevent infinite recursion (Xcode sucks)\nexport ALREADYINVOKED=\"true\"\n\necho \"RECURSION: I am the root ... recursing all missing build targets NOW...\"\necho \"RECURSION: ...about to invoke: xcodebuild -configuration \\\"${CONFIGURATION}\\\" -target \\\"${TARGET_NAME}\\\" -sdk \\\"${OTHER_SDK_TO_BUILD}\\\" ${ACTION} RUN_CLANG_STATIC_ANALYZER=NO\"\nxcodebuild -configuration \"${CONFIGURATION}\" -target \"${TARGET_NAME}\" -sdk \"${OTHER_SDK_TO_BUILD}\" ${ACTION} RUN_CLANG_STATIC_ANALYZER=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\n\nACTION=\"build\"\n\n#Merge all platform binaries as a fat binary for each configurations.\n\n# Calculate where the (multiple) built files are coming from:\nCURRENTCONFIG_DEVICE_DIR=${SYMROOT}/${CONFIGURATION}-iphoneos\nCURRENTCONFIG_SIMULATOR_DIR=${SYMROOT}/${CONFIGURATION}-iphonesimulator\n\necho \"Taking device build from: ${CURRENTCONFIG_DEVICE_DIR}\"\necho \"Taking simulator build from: ${CURRENTCONFIG_SIMULATOR_DIR}\"\n\nCREATING_UNIVERSAL_DIR=${SYMROOT}/${CONFIGURATION}-universal\necho \"...I will output a universal build to: ${CREATING_UNIVERSAL_DIR}\"\n\n# ... remove the products of previous runs of this script\n#      NB: this directory is ONLY created by this script - it should be safe to delete!\n\nrm -rf \"${CREATING_UNIVERSAL_DIR}\"\nmkdir \"${CREATING_UNIVERSAL_DIR}\"\n\n#\necho \"lipo: for current configuration (${CONFIGURATION}) creating output file: ${CREATING_UNIVERSAL_DIR}/${EXECUTABLE_NAME}\"\nlipo -create -output \"${CREATING_UNIVERSAL_DIR}/${EXECUTABLE_NAME}\" \"${CURRENTCONFIG_DEVICE_DIR}/${EXECUTABLE_NAME}\" \"${CURRENTCONFIG_SIMULATOR_DIR}/${EXECUTABLE_NAME}\"\n\n#########\n#\n# Added: StackOverflow suggestion to also copy \"include\" files\n#    (untested, but should work OK)\n#\nif [ -d \"${CURRENTCONFIG_DEVICE_DIR}/usr/local/include\" ]\nthen\nmkdir -p \"${CREATING_UNIVERSAL_DIR}/usr/local/include\"\n# * needs to be outside the double quotes?\ncp \"${CURRENTCONFIG_DEVICE_DIR}/usr/local/include/\"* \"${CREATING_UNIVERSAL_DIR}/usr/local/include\"\nfi\nfi";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D8E78A67159D9BC7006394F7 /* Sources */ = {
@@ -353,7 +491,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D8E78D54159DA2CE006394F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8E78D69159DA2CE006394F7 /* iRuby.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D8E78D63159DA2CE006394F7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8E78D64159DA2CE006394F7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D8E78A76159D9BC7006394F7 /* Debug */ = {
@@ -422,6 +579,54 @@
 			};
 			name = Release;
 		};
+		D8E78D6B159DA2CE006394F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iRuby/iRuby-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "iRuby/iRuby-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		D8E78D6C159DA2CE006394F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iRuby/iRuby-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "iRuby/iRuby-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -439,6 +644,14 @@
 			buildConfigurations = (
 				D8E78A79159D9BC7006394F7 /* Debug */,
 				D8E78A7A159D9BC7006394F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D8E78D6A159DA2CE006394F7 /* Build configuration list for PBXNativeTarget "iRuby" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8E78D6B159DA2CE006394F7 /* Debug */,
+				D8E78D6C159DA2CE006394F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
