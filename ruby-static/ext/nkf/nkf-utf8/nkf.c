@@ -779,255 +779,255 @@ nkf_char std_gc_ndx;
 #include "nkf32dll.c"
 #elif defined(PERL_XS)
 #else /* WIN32DLL */
-int main(int argc, char **argv)
-{
-    FILE  *fin;
-    unsigned char  *cp;
-
-    char *outfname = NULL;
-    char *origfname;
-
-#ifdef EASYWIN /*Easy Win */
-    _BufferSize.y = 400;/*Set Scroll Buffer Size*/
-#endif
-
-    for (argc--,argv++; (argc > 0) && **argv == '-'; argc--, argv++) {
-        cp = (unsigned char *)*argv;
-        options(cp);
-#ifdef EXEC_IO
-        if (exec_f){
-            int fds[2], pid;
-            if (pipe(fds) < 0 || (pid = fork()) < 0){
-                abort();
-            }
-            if (pid == 0){
-                if (exec_f > 0){
-                    close(fds[0]);
-                    dup2(fds[1], 1);
-                }else{
-                    close(fds[1]);
-                    dup2(fds[0], 0);
-                }
-                execvp(argv[1], &argv[1]);
-            }
-            if (exec_f > 0){
-                close(fds[1]);
-                dup2(fds[0], 0);
-            }else{
-                close(fds[0]);
-                dup2(fds[1], 1);
-            }
-            argc = 0;
-            break;
-        }
-#endif
-    }
-    if(x0201_f == WISH_TRUE)
-         x0201_f = ((!iso2022jp_f)? TRUE : NO_X0201);
-
-    if (binmode_f == TRUE)
-#if defined(__OS2__) && (defined(__IBMC__) || defined(__IBMCPP__))
-    if (freopen("","wb",stdout) == NULL) 
-        return (-1);
-#else
-    setbinmode(stdout);
-#endif
-
-    if (unbuf_f)
-      setbuf(stdout, (char *) NULL);
-    else
-      setvbuffer(stdout, (char *) stdobuf, IOBUF_SIZE);
-
-    if (argc == 0) {
-      if (binmode_f == TRUE)
-#if defined(__OS2__) && (defined(__IBMC__) || defined(__IBMCPP__))
-      if (freopen("","rb",stdin) == NULL) return (-1);
-#else
-      setbinmode(stdin);
-#endif
-      setvbuffer(stdin, (char *) stdibuf, IOBUF_SIZE);
-      if (nop_f)
-          noconvert(stdin);
-      else {
-          kanji_convert(stdin);
-          if (guess_f) print_guessed_code(NULL);
-      }
-    } else {
-      int nfiles = argc;
-	int is_argument_error = FALSE;
-      while (argc--) {
-	    is_inputcode_mixed = FALSE;
-	    is_inputcode_set   = FALSE;
-	    input_codename = "";
-#ifdef CHECK_OPTION
-	    iconv_for_check = 0;
-#endif
-          if ((fin = fopen((origfname = *argv++), "r")) == NULL) {
-              perror(*--argv);
-		*argv++;
-		is_argument_error = TRUE;
-		continue;
-          } else {
-#ifdef OVERWRITE
-              int fd = 0;
-              int fd_backup = 0;
-#endif
-
-/* reopen file for stdout */
-              if (file_out_f == TRUE) {
-#ifdef OVERWRITE
-                  if (overwrite_f){
-                      outfname = malloc(strlen(origfname)
-                                        + strlen(".nkftmpXXXXXX")
-                                        + 1);
-                      if (!outfname){
-                          perror(origfname);
-                          return -1;
-                      }
-                      strcpy(outfname, origfname);
-#ifdef MSDOS
-                      {
-                          int i;
-                          for (i = strlen(outfname); i; --i){
-                              if (outfname[i - 1] == '/'
-                                  || outfname[i - 1] == '\\'){
-                                  break;
-                              }
-                          }
-                          outfname[i] = '\0';
-                      }
-                      strcat(outfname, "ntXXXXXX");
-                      mktemp(outfname);
-			fd = open(outfname, O_WRONLY | O_CREAT | O_TRUNC | O_EXCL,
-                                S_IREAD | S_IWRITE);
-#else
-                      strcat(outfname, ".nkftmpXXXXXX");
-                      fd = mkstemp(outfname);
-#endif
-                      if (fd < 0
-                          || (fd_backup = dup(fileno(stdout))) < 0
-                          || dup2(fd, fileno(stdout)) < 0
-                          ){
-                          perror(origfname);
-                          return -1;
-                      }
-                  }else
-#endif
-		  if(argc == 1 ) {
-		      outfname = *argv++;
-		      argc--;
-		  } else {
-		      outfname = "nkf.out";
-		  }
-
-		  if(freopen(outfname, "w", stdout) == NULL) {
-		      perror (outfname);
-		      return (-1);
-		  }
-                  if (binmode_f == TRUE) {
-#if defined(__OS2__) && (defined(__IBMC__) || defined(__IBMCPP__))
-                      if (freopen("","wb",stdout) == NULL) 
-                           return (-1);
-#else
-                      setbinmode(stdout);
-#endif
-                  }
-              }
-              if (binmode_f == TRUE)
-#if defined(__OS2__) && (defined(__IBMC__) || defined(__IBMCPP__))
-                 if (freopen("","rb",fin) == NULL) 
-                    return (-1);
-#else
-                 setbinmode(fin);
-#endif 
-              setvbuffer(fin, (char *) stdibuf, IOBUF_SIZE);
-              if (nop_f)
-                  noconvert(fin);
-              else {
-                  char *filename = NULL;
-                  kanji_convert(fin);
-                  if (nfiles > 1) filename = origfname;
-                  if (guess_f) print_guessed_code(filename);
-              }
-              fclose(fin);
-#ifdef OVERWRITE
-              if (overwrite_f) {
-                  struct stat     sb;
-#if defined(MSDOS) && !defined(__MINGW32__) && !defined(__WIN32__) && !defined(__WATCOMC__) && !defined(__EMX__) && !defined(__OS2__) && !defined(__DJGPP__)
-                  time_t tb[2];
-#else
-                  struct utimbuf  tb;
-#endif
-
-                  fflush(stdout);
-                  close(fd);
-                  if (dup2(fd_backup, fileno(stdout)) < 0){
-                      perror("dup2");
-                  }
-                  if (stat(origfname, &sb)) {
-                      fprintf(stderr, "Can't stat %s\n", origfname);
-                  }
-                  /* パーミッションを復元 */
-                  if (chmod(outfname, sb.st_mode)) {
-                      fprintf(stderr, "Can't set permission %s\n", outfname);
-                  }
-
-                  /* タイムスタンプを復元 */
-		    if(preserve_time_f){
-#if defined(MSDOS) && !defined(__MINGW32__) && !defined(__WIN32__) && !defined(__WATCOMC__) && !defined(__EMX__) && !defined(__OS2__) && !defined(__DJGPP__)
-			tb[0] = tb[1] = sb.st_mtime;
-			if (utime(outfname, tb)) {
-			    fprintf(stderr, "Can't set timestamp %s\n", outfname);
-			}
-#else
-			tb.actime  = sb.st_atime;
-			tb.modtime = sb.st_mtime;
-			if (utime(outfname, &tb)) {
-			    fprintf(stderr, "Can't set timestamp %s\n", outfname);
-			}
-#endif
-		    }
-		    if(backup_f){
-			char *backup_filename = get_backup_filename(backup_suffix, origfname);
-#ifdef MSDOS
-			unlink(backup_filename);
-#endif
-			if (rename(origfname, backup_filename)) {
-			    perror(backup_filename);
-			    fprintf(stderr, "Can't rename %s to %s\n",
-				    origfname, backup_filename);
-			}
-		    }else{
-#ifdef MSDOS
-			if (unlink(origfname)){
-			    perror(origfname);
-			}
-#endif
-		    }
-                  if (rename(outfname, origfname)) {
-                      perror(origfname);
-                      fprintf(stderr, "Can't rename %s to %s\n",
-                              outfname, origfname);
-                  }
-                  free(outfname);
-              }
-#endif
-          }
-      }
-	if (is_argument_error)
-	    return(-1);
-    }
-#ifdef EASYWIN /*Easy Win */
-    if (file_out_f == FALSE) 
-        scanf("%d",&end_check);
-    else 
-        fclose(stdout);
-#else /* for Other OS */
-    if (file_out_f == TRUE) 
-        fclose(stdout);
-#endif /*Easy Win */
-    return (0);
-}
+//int main(int argc, char **argv)
+//{
+//    FILE  *fin;
+//    unsigned char  *cp;
+//
+//    char *outfname = NULL;
+//    char *origfname;
+//
+//#ifdef EASYWIN /*Easy Win */
+//    _BufferSize.y = 400;/*Set Scroll Buffer Size*/
+//#endif
+//
+//    for (argc--,argv++; (argc > 0) && **argv == '-'; argc--, argv++) {
+//        cp = (unsigned char *)*argv;
+//        options(cp);
+//#ifdef EXEC_IO
+//        if (exec_f){
+//            int fds[2], pid;
+//            if (pipe(fds) < 0 || (pid = fork()) < 0){
+//                abort();
+//            }
+//            if (pid == 0){
+//                if (exec_f > 0){
+//                    close(fds[0]);
+//                    dup2(fds[1], 1);
+//                }else{
+//                    close(fds[1]);
+//                    dup2(fds[0], 0);
+//                }
+//                execvp(argv[1], &argv[1]);
+//            }
+//            if (exec_f > 0){
+//                close(fds[1]);
+//                dup2(fds[0], 0);
+//            }else{
+//                close(fds[0]);
+//                dup2(fds[1], 1);
+//            }
+//            argc = 0;
+//            break;
+//        }
+//#endif
+//    }
+//    if(x0201_f == WISH_TRUE)
+//         x0201_f = ((!iso2022jp_f)? TRUE : NO_X0201);
+//
+//    if (binmode_f == TRUE)
+//#if defined(__OS2__) && (defined(__IBMC__) || defined(__IBMCPP__))
+//    if (freopen("","wb",stdout) == NULL) 
+//        return (-1);
+//#else
+//    setbinmode(stdout);
+//#endif
+//
+//    if (unbuf_f)
+//      setbuf(stdout, (char *) NULL);
+//    else
+//      setvbuffer(stdout, (char *) stdobuf, IOBUF_SIZE);
+//
+//    if (argc == 0) {
+//      if (binmode_f == TRUE)
+//#if defined(__OS2__) && (defined(__IBMC__) || defined(__IBMCPP__))
+//      if (freopen("","rb",stdin) == NULL) return (-1);
+//#else
+//      setbinmode(stdin);
+//#endif
+//      setvbuffer(stdin, (char *) stdibuf, IOBUF_SIZE);
+//      if (nop_f)
+//          noconvert(stdin);
+//      else {
+//          kanji_convert(stdin);
+//          if (guess_f) print_guessed_code(NULL);
+//      }
+//    } else {
+//      int nfiles = argc;
+//	int is_argument_error = FALSE;
+//      while (argc--) {
+//	    is_inputcode_mixed = FALSE;
+//	    is_inputcode_set   = FALSE;
+//	    input_codename = "";
+//#ifdef CHECK_OPTION
+//	    iconv_for_check = 0;
+//#endif
+//          if ((fin = fopen((origfname = *argv++), "r")) == NULL) {
+//              perror(*--argv);
+//		*argv++;
+//		is_argument_error = TRUE;
+//		continue;
+//          } else {
+//#ifdef OVERWRITE
+//              int fd = 0;
+//              int fd_backup = 0;
+//#endif
+//
+///* reopen file for stdout */
+//              if (file_out_f == TRUE) {
+//#ifdef OVERWRITE
+//                  if (overwrite_f){
+//                      outfname = malloc(strlen(origfname)
+//                                        + strlen(".nkftmpXXXXXX")
+//                                        + 1);
+//                      if (!outfname){
+//                          perror(origfname);
+//                          return -1;
+//                      }
+//                      strcpy(outfname, origfname);
+//#ifdef MSDOS
+//                      {
+//                          int i;
+//                          for (i = strlen(outfname); i; --i){
+//                              if (outfname[i - 1] == '/'
+//                                  || outfname[i - 1] == '\\'){
+//                                  break;
+//                              }
+//                          }
+//                          outfname[i] = '\0';
+//                      }
+//                      strcat(outfname, "ntXXXXXX");
+//                      mktemp(outfname);
+//			fd = open(outfname, O_WRONLY | O_CREAT | O_TRUNC | O_EXCL,
+//                                S_IREAD | S_IWRITE);
+//#else
+//                      strcat(outfname, ".nkftmpXXXXXX");
+//                      fd = mkstemp(outfname);
+//#endif
+//                      if (fd < 0
+//                          || (fd_backup = dup(fileno(stdout))) < 0
+//                          || dup2(fd, fileno(stdout)) < 0
+//                          ){
+//                          perror(origfname);
+//                          return -1;
+//                      }
+//                  }else
+//#endif
+//		  if(argc == 1 ) {
+//		      outfname = *argv++;
+//		      argc--;
+//		  } else {
+//		      outfname = "nkf.out";
+//		  }
+//
+//		  if(freopen(outfname, "w", stdout) == NULL) {
+//		      perror (outfname);
+//		      return (-1);
+//		  }
+//                  if (binmode_f == TRUE) {
+//#if defined(__OS2__) && (defined(__IBMC__) || defined(__IBMCPP__))
+//                      if (freopen("","wb",stdout) == NULL) 
+//                           return (-1);
+//#else
+//                      setbinmode(stdout);
+//#endif
+//                  }
+//              }
+//              if (binmode_f == TRUE)
+//#if defined(__OS2__) && (defined(__IBMC__) || defined(__IBMCPP__))
+//                 if (freopen("","rb",fin) == NULL) 
+//                    return (-1);
+//#else
+//                 setbinmode(fin);
+//#endif 
+//              setvbuffer(fin, (char *) stdibuf, IOBUF_SIZE);
+//              if (nop_f)
+//                  noconvert(fin);
+//              else {
+//                  char *filename = NULL;
+//                  kanji_convert(fin);
+//                  if (nfiles > 1) filename = origfname;
+//                  if (guess_f) print_guessed_code(filename);
+//              }
+//              fclose(fin);
+//#ifdef OVERWRITE
+//              if (overwrite_f) {
+//                  struct stat     sb;
+//#if defined(MSDOS) && !defined(__MINGW32__) && !defined(__WIN32__) && !defined(__WATCOMC__) && !defined(__EMX__) && !defined(__OS2__) && !defined(__DJGPP__)
+//                  time_t tb[2];
+//#else
+//                  struct utimbuf  tb;
+//#endif
+//
+//                  fflush(stdout);
+//                  close(fd);
+//                  if (dup2(fd_backup, fileno(stdout)) < 0){
+//                      perror("dup2");
+//                  }
+//                  if (stat(origfname, &sb)) {
+//                      fprintf(stderr, "Can't stat %s\n", origfname);
+//                  }
+//                  /* パーミッションを復元 */
+//                  if (chmod(outfname, sb.st_mode)) {
+//                      fprintf(stderr, "Can't set permission %s\n", outfname);
+//                  }
+//
+//                  /* タイムスタンプを復元 */
+//		    if(preserve_time_f){
+//#if defined(MSDOS) && !defined(__MINGW32__) && !defined(__WIN32__) && !defined(__WATCOMC__) && !defined(__EMX__) && !defined(__OS2__) && !defined(__DJGPP__)
+//			tb[0] = tb[1] = sb.st_mtime;
+//			if (utime(outfname, tb)) {
+//			    fprintf(stderr, "Can't set timestamp %s\n", outfname);
+//			}
+//#else
+//			tb.actime  = sb.st_atime;
+//			tb.modtime = sb.st_mtime;
+//			if (utime(outfname, &tb)) {
+//			    fprintf(stderr, "Can't set timestamp %s\n", outfname);
+//			}
+//#endif
+//		    }
+//		    if(backup_f){
+//			char *backup_filename = get_backup_filename(backup_suffix, origfname);
+//#ifdef MSDOS
+//			unlink(backup_filename);
+//#endif
+//			if (rename(origfname, backup_filename)) {
+//			    perror(backup_filename);
+//			    fprintf(stderr, "Can't rename %s to %s\n",
+//				    origfname, backup_filename);
+//			}
+//		    }else{
+//#ifdef MSDOS
+//			if (unlink(origfname)){
+//			    perror(origfname);
+//			}
+//#endif
+//		    }
+//                  if (rename(outfname, origfname)) {
+//                      perror(origfname);
+//                      fprintf(stderr, "Can't rename %s to %s\n",
+//                              outfname, origfname);
+//                  }
+//                  free(outfname);
+//              }
+//#endif
+//          }
+//      }
+//	if (is_argument_error)
+//	    return(-1);
+//    }
+//#ifdef EASYWIN /*Easy Win */
+//    if (file_out_f == FALSE) 
+//        scanf("%d",&end_check);
+//    else 
+//        fclose(stdout);
+//#else /* for Other OS */
+//    if (file_out_f == TRUE) 
+//        fclose(stdout);
+//#endif /*Easy Win */
+//    return (0);
+//}
 #endif /* WIN32DLL */
 
 #ifdef OVERWRITE

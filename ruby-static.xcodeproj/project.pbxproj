@@ -114,7 +114,6 @@
 		D8E79370159DA754006394F7 /* nkf.c in Sources */ = {isa = PBXBuildFile; fileRef = D8E78E2D159DA753006394F7 /* nkf.c */; };
 		D8E79371159DA754006394F7 /* utf8tbl.c in Sources */ = {isa = PBXBuildFile; fileRef = D8E78E2E159DA753006394F7 /* utf8tbl.c */; };
 		D8E79372159DA754006394F7 /* utf8tbl.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E78E2F159DA753006394F7 /* utf8tbl.h */; };
-		D8E79373159DA754006394F7 /* nkf.c in Sources */ = {isa = PBXBuildFile; fileRef = D8E78E30159DA753006394F7 /* nkf.c */; };
 		D8E793A9159DA754006394F7 /* pty.c in Sources */ = {isa = PBXBuildFile; fileRef = D8E78E7D159DA753006394F7 /* pty.c */; };
 		D8E793AA159DA754006394F7 /* cparse.c in Sources */ = {isa = PBXBuildFile; fileRef = D8E78E88159DA753006394F7 /* cparse.c */; };
 		D8E793AC159DA754006394F7 /* _sdbm.c in Sources */ = {isa = PBXBuildFile; fileRef = D8E78E94159DA753006394F7 /* _sdbm.c */; };
@@ -969,7 +968,6 @@
 				D8E7936E159DA754006394F7 /* wait.c in Sources */,
 				D8E79370159DA754006394F7 /* nkf.c in Sources */,
 				D8E79371159DA754006394F7 /* utf8tbl.c in Sources */,
-				D8E79373159DA754006394F7 /* nkf.c in Sources */,
 				D8E793A9159DA754006394F7 /* pty.c in Sources */,
 				D8E793AA159DA754006394F7 /* cparse.c in Sources */,
 				D8E793AC159DA754006394F7 /* _sdbm.c in Sources */,

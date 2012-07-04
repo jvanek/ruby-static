@@ -1228,13 +1228,13 @@ flo_is_finite_p(num)
 {
     double value = RFLOAT(num)->value;
 
-#if HAVE_FINITE
-    if (!finite(value))
-	return Qfalse;
-#else
+//#if HAVE_FINITE
+//    if (!finite(value))
+//	return Qfalse;
+//#else
     if (isinf(value) || isnan(value))
 	return Qfalse;
-#endif
+//#endif
 
     return Qtrue;
 }
